@@ -4,6 +4,7 @@ Works only on Windows 10 and on Godot Engine 4.
 
 Straightforward changes to make work on Linux and Mac.
 
+![Demo](https://user-images.githubusercontent.com/32321/116321716-6bfec800-a76f-11eb-99bb-357f3ce1f57e.mp4)
 
 ### Design
 
