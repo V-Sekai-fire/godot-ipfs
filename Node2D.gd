@@ -1,7 +1,8 @@
 extends Node2D
 var user_dir = ProjectSettings.globalize_path("user://ipfs/repo")
 var user_lock = "user://ipfs/repo.lock"
-var ipfs_bin = ProjectSettings.globalize_path("res://pack/windows/ipfs.exe")
+var res_ipfs_bin = "res://pack/windows/ipfs.exe"
+var ipfs_bin = ProjectSettings.globalize_path("user://ipfs.exe")
 var pid = -1
 
 
@@ -10,7 +11,10 @@ func _ready():
 	$HTTPRequest2.connect("request_completed", Callable(self, "_on_request_completed"))
 	$HTTPRequest3.connect("request_completed", Callable(self, "_on_request_completed"))
 	_on_Button3_pressed()
-
+	var dir = Directory.new()
+	dir.open(ipfs_bin.get_base_dir())
+	dir.copy(res_ipfs_bin, ipfs_bin)
+	
 
 func _exit_tree():
 	OS.kill(pid)
